@@ -53,6 +53,28 @@
   float: right;
 }
 
-.navinside i{
-  height: 100%;
+.ant-menu-horizontal,.ant-menu-horizontal li,.ant-menu-horizontal li span {
+  height: 99%;
+  background-color: #fff !important;
+  font-size: 14px;
+  border-bottom: none !important;
 }
+
+.ant-menu-horizontal li:hover {
+  border-top: solid 3px #6eb4e0;
+}
+
+.ant-menu-horizontal li span {
+  line-height: 80px;
+  background-color: #fff;
+ }
+
+.ant-menu-item-selected {
+  background-color: #fff;
+}
+
+.anticon-mail:before {
+    display: none;
+}
+
+

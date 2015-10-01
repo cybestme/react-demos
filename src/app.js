@@ -55,22 +55,28 @@ var Header = React.createClass ({
                 <Option value="yiminghe1">yiminghe1</Option>                 
               </Select>
              </div>
-             <div className="nav">
+             <div className="nav clearfix">
                   <Menu onClick={this.handleClick} selectedKeys={[this.state.current]} mode="horizontal" className="navinside">
-                    <Menu.Item key="mail">
-                      <i className="anticon anticon-mail"></i>导航一
+                    <Menu.Item key="mail" className="navtip">
+                      <i className="anticon anticon-mail"></i>首页
                     </Menu.Item>
                     <Menu.Item key="app">
-                      <i className="anticon anticon-appstore"></i>导航二
+                      <i className="anticon anticon-appstore" className="navtip"></i>设计
                     </Menu.Item>
-                    <SubMenu title={<span><i className="anticon anticon-setting"></i>导航 - 子菜单</span>}>
-                      <Menu.Item key="setting:1">选项1</Menu.Item>
-                      <Menu.Item key="setting:2">选项2</Menu.Item>
-                      <Menu.Item key="setting:3">选项3</Menu.Item>
-                      <Menu.Item key="setting:4">选项4</Menu.Item>
-                    </SubMenu>
-                    <Menu.Item key="alipay">
-                      <a href="http://www.alipay.com/" target="_blank">导航四 - 链接</a>
+                     <SubMenu title={<span><i className="anticon anticon-setting" className="navtip"></i>导航</span>}>
+                       <Menu.Item key="setting:1">选项1</Menu.Item>
+                       <Menu.Item key="setting:2">选项2</Menu.Item>
+                       <Menu.Item key="setting:3">选项3</Menu.Item>
+                       <Menu.Item key="setting:4">选项4</Menu.Item>
+                     </SubMenu>
+                    <Menu.Item>
+                      <i className="anticon anticon-appstore" className="navtip"></i>案例
+                    </Menu.Item>
+                    <Menu.Item>
+                      <i className="anticon anticon-appstore" className="navtip"></i>React
+                    </Menu.Item>
+                    <Menu.Item>
+                      <i className="anticon anticon-appstore" className="navtip"></i>Github
                     </Menu.Item>
                   </Menu>
              </div>
@@ -79,9 +85,40 @@ var Header = React.createClass ({
 });
 
 var Sidebar = React.createClass ({
+  getInitialState() {
+    return {
+      current: '1'
+    }
+  },
+  handleClick(e) {
+    console.log('click ', e);
+    this.setState({
+      current: e.key
+    });
+  },
   render() {
     return <div>
-    </div>
+              <Menu onClick={this.handleClick}
+                           style={{width:240}}
+                           defaultOpenKeys={['sub1']}
+                           selectedKeys={[this.state.current]}
+                           mode="inline">
+                <SubMenu key="sub1" title={<span><i className="anticon anticon-mail"></i><span>Ant Design of React</span></span>}>
+                </SubMenu>
+                <SubMenu key="sub2" title={<span><i className="anticon anticon-mail"></i><span>快速上手</span></span>}>
+                </SubMenu>
+                <SubMenu key="sub3" title={<span><i className="anticon anticon-mail"></i><span>下载</span></span>}>
+                </SubMenu>
+                <SubMenu key="sub4" title={<span><i className="anticon anticon-appstore"></i><span>更新日志</span></span>}>
+                </SubMenu>
+                <SubMenu key="sub5" title={<span><i className="anticon anticon-setting"></i><span>Components</span></span>}>
+                  <Menu.Item key="1">选项1</Menu.Item>
+                  <Menu.Item key="2">选项2</Menu.Item>
+                  <Menu.Item key="3">选项11</Menu.Item>
+                  <Menu.Item key="4">选项12</Menu.Item>
+                </SubMenu>
+              </Menu>;
+          </div>
   }
 });
 
